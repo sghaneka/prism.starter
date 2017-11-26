@@ -8,6 +8,9 @@ using System.Windows;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using ModuleA;
+using Prism.Regions;
+using System.Windows.Controls;
+using PluralsightPrismDemo.Infrastructure;
 
 namespace PluralsightPrismDemo
 {
@@ -31,6 +34,13 @@ namespace PluralsightPrismDemo
             ModuleCatalog catalog = new ModuleCatalog();
             catalog.AddModule(typeof(ModuleAModule));
             return catalog;
+        }
+
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            RegionAdapterMappings mappings = base.ConfigureRegionAdapterMappings();
+            mappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
+            return mappings;
         }
     }
 }

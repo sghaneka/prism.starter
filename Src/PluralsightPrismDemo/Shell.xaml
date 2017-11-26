@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PluralsightPrismDemo"
         xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:inf="clr-namespace:PluralsightPrismDemo.Infrastructure;assembly=PluralsightPrismDemo.Infrastructure"
         mc:Ignorable="d"
         Title="Shell" >
     <DockPanel LastChildFill="True" >
-        <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="ToolbarRegion" />
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" />
     </DockPanel>
 </Window>

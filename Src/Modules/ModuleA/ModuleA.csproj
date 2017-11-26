@@ -112,5 +112,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PluralsightPrismDemo.Infrastructure\PluralsightPrismDemo.Infrastructure.csproj">
+      <Project>{c2a48ad4-b016-449d-8c94-53d5b98951fc}</Project>
+      <Name>PluralsightPrismDemo.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

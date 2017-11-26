@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
+using PluralsightPrismDemo.Infrastructure;
 using Prism.Modularity;
 using Prism.Regions;
 using System;
@@ -22,9 +23,17 @@ namespace ModuleA
 
         public void Initialize()
         {
+            IRegion region = _regionManager.Regions[RegionNames.ToolbarRegion];
+
+            region.Add(_container.Resolve<ToolbarView>());
+            region.Add(_container.Resolve<ToolbarView>());
+            region.Add(_container.Resolve<ToolbarView>());
+            region.Add(_container.Resolve<ToolbarView>());
+            region.Add(_container.Resolve<ToolbarView>());
+
             //experiement with regions here
-            _regionManager.RegisterViewWithRegion("ToolbarRegion", typeof(ToolbarView));
-            _regionManager.RegisterViewWithRegion("ContentRegion", typeof(ContentView));
+            //_regionManager.RegisterViewWithRegion(RegionNames.ToolbarRegion, typeof(ToolbarView));
+            _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(ContentView));
         }
     }
 
