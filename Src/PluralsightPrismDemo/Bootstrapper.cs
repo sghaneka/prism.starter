@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.Unity;
+using Prism.Modularity;
+using ModuleA;
 
 namespace PluralsightPrismDemo
 {
@@ -22,6 +24,13 @@ namespace PluralsightPrismDemo
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            ModuleCatalog catalog = new ModuleCatalog();
+            catalog.AddModule(typeof(ModuleAModule));
+            return catalog;
         }
     }
 }
